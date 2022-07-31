@@ -4,4 +4,7 @@
 
 class Logger
 {
+  function hoge()
+  {
+  }
 }
