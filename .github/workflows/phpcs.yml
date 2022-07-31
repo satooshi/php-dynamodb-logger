@@ -1,0 +1,35 @@
+name: PHPCS
+
+on:
+  push:
+    branches:
+      - "*"
+    tags:
+      - "*"
+    paths:
+      - "**"
+      - "!*.md"
+  # pull_request:
+  #   paths:
+  #     - "**"
+  #     - "!*.md"
+
+jobs:
+  phpcs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: "8.1"
+      - run: php --version
+      - uses: actions/cache@v3
+        env:
+          cache-name: cache-composer
+        with:
+          path: vendor
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
+      - uses: baschny/php-composer-action@v1
+      - run: composer phpcs
