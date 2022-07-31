@@ -16,5 +16,21 @@
     "phpunit/phpunit": "^9.5",
     "squizlabs/php_codesniffer": "^3.7",
     "phpstan/phpstan": "^1.8"
+  },
+  "scripts": {
+    "phpcs": [
+      "./vendor/bin/phpcs --standard=phpcs.xml"
+    ],
+    "phpstan": [
+      "./vendor/bin/phpstan --configuration=phpstan.neon"
+    ],
+    "phpunit": [
+      "./vendor/bin/phpunit"
+    ],
+    "test": [
+      "@phpcs",
+      "@phpstan",
+      "@phpunit"
+    ]
   }
 }
