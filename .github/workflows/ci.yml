@@ -27,8 +27,8 @@ jobs:
     needs: static-analysis
     runs-on: ${{ matrix.operating-system }}
     strategy:
+      fail-fast: false
       matrix:
-        fail-fast: false
         operating-system: ["ubuntu-latest", "windows-latest", "macos-latest"]
         php-versions: ["7.4", "8.0", "8.1"]
         # exclude:
