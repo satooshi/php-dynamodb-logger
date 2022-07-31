@@ -6,4 +6,5 @@
     <arg value="ps" />
 
     <file>src</file>
+    <file>tests</file>
 </ruleset>
