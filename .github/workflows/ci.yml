@@ -7,6 +7,7 @@ jobs:
   static-analysis:
     runs-on: ubuntu-latest
     steps:
+      - run: php --version
       - uses: actions/checkout@v3
       - uses: shivammathur/setup-php@v2
         with:
