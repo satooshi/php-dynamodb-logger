@@ -9,10 +9,10 @@ on:
     paths:
       - "**"
       - "!*.md"
-  pull_request:
-    paths:
-      - "**"
-      - "!*.md"
+  # pull_request:
+  #   paths:
+  #     - "**"
+  #     - "!*.md"
 
 jobs:
   phpstan:
