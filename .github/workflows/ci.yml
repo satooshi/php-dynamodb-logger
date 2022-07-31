@@ -20,6 +20,7 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
       - uses: baschny/php-composer-action@v1
+      - run: php --version
       - run: vendor/bin/phpcs
       - run: vendor/bin/phpstan
   test:
