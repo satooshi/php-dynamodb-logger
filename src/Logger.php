@@ -1,6 +1,6 @@
 <?php
 
-// namespace Satooshi\DynamodbLogger;
+namespace Satooshi\DynamodbLogger;
 
 class Logger
 {
