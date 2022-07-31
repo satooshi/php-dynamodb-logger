@@ -25,7 +25,7 @@ jobs:
       - run: vendor/bin/phpstan
   test:
     needs: static-analysis
-    runs-on: ${{ matrix.operating-system }}
+    runs-on: ubuntu-latest
     strategy:
       fail-fast: false
       matrix:
