@@ -8,7 +8,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: baschny/php-composer-action@v1
       - uses: actions/cache@v3
         env:
           cache-name: cache-composer
@@ -17,6 +16,7 @@ jobs:
           key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('composer.lock') }}
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
+      - uses: baschny/php-composer-action@v1
       - run: vendor/bin/phpcs
       - run: vendor/bin/phpstan
   test:
@@ -24,5 +24,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+      - uses: actions/cache@v3
+        env:
+          cache-name: cache-composer
+        with:
+          path: vendor
+          key: ${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('composer.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-build-${{ env.cache-name }}-
       - uses: baschny/php-composer-action@v1
       - run: vendor/bin/phpunit
